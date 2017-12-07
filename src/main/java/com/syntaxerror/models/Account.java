@@ -9,21 +9,22 @@ public abstract class Account {
     // <editor-fold defaultstate="collapsed" desc="Properties">
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
-    private String firstName;
-    private String lastName;
-    private String phone;
-    private String mail;
-    private String user;
-    private String magic;
-    private Location currentLocation;
-    private Boolean isOnTrip;
-    private Boolean isLocked;
-    private Boolean isDeleted;
-    private Float rate;
-    private File faceImage;
-    private Integer tripCount;
-    private Set<Report> reports;
+    protected Integer Id;
+    protected String firstName;
+    protected String lastName;
+    protected String phone;
+    protected String mail;
+    protected String user;
+    protected String magic;
+    protected Location currentLocation;
+    protected Boolean isOnTrip;
+    protected Boolean isLocked;
+    protected Boolean isDeleted;
+    protected Float rate;
+    protected File faceImage;
+    protected Integer tripCount;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "report")
+    protected Set<Report> reports;
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">

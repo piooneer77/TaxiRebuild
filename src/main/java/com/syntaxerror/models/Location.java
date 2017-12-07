@@ -1,8 +1,15 @@
 package com.syntaxerror.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Location_table")
 public class Location {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer Id;
     private String name;
     private double longitude;
     private double latitude;
@@ -20,6 +27,10 @@ public class Location {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Getters">
+    public Integer getId() {
+        return Id;
+    }
+
     public String getName() {
         return name;
     }
