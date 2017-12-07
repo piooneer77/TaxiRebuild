@@ -23,11 +23,26 @@ public abstract class Account {
     private Float rate;
     private File faceImage;
     private Integer tripCount;
-    private Set<Reports> reports;
+    private Set<Report> reports;
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-
+    protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount, Set<Report> reports) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.mail = mail;
+        this.user = user;
+        this.magic = magic;
+        this.currentLocation = currentLocation;
+        this.isOnTrip = isOnTrip;
+        this.isLocked = isLocked;
+        this.isDeleted = isDeleted;
+        this.rate = rate;
+        this.faceImage = faceImage;
+        this.tripCount = tripCount;
+        this.reports = reports;
+    }
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Getters">
@@ -87,7 +102,7 @@ public abstract class Account {
         return tripCount;
     }
 
-    public Set<Reports> getReports() {
+    public Set<Report> getReports() {
         return reports;
     }
     // </editor-fold>
@@ -145,7 +160,7 @@ public abstract class Account {
         this.tripCount = tripCount;
     }
 
-    public void setReports(Set<Reports> reports) {
+    public void setReports(Set<Report> reports) {
         this.reports = reports;
     }
     // </editor-fold>

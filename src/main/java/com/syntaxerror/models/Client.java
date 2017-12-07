@@ -1,6 +1,10 @@
 package com.syntaxerror.models;
 
-public class Reports {
+import javax.persistence.*;
+
+@Entity
+@Table( name = "Client_table" )
+public class Client {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
 
