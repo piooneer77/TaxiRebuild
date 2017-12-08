@@ -1,8 +1,7 @@
 package com.syntaxerror.models;
+
 import javax.persistence.*;
 
-@Entity
-@Table( name = "ClientsSharingTheTrip_table" )
 public class ClientsSharingTheTrip {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

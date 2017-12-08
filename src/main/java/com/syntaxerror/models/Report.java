@@ -9,12 +9,13 @@ public class Report {
     // <editor-fold defaultstate="collapsed" desc="Properties">
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
     private Integer Id;
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "report")
-    private Trip trip;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Report report;
     private String reportString;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Driver driver;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Client client;
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">

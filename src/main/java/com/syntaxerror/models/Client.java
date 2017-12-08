@@ -2,6 +2,8 @@ package com.syntaxerror.models;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -9,47 +11,45 @@ import java.util.Set;
 public class Client extends Account {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
-    private Location home;
-    private Location work;
-    private Location customSetLocationByClient;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private Set<Trip> trips;
+    private List<ClientFavourateLocation> clientFavourateLocations = new ArrayList<ClientFavourateLocation>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    private List<Trip> trips;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    protected List<Report> reports = new ArrayList<Report>();
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    public Client(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount, Set<Report> reports, Location home, Location work, Location customSetLocationByClient) {
-        super(firstName, lastName, phone, mail, user, magic, currentLocation, isOnTrip, isLocked, isDeleted, rate, faceImage, tripCount, reports);
-        this.home = home;
-        this.work = work;
-        this.customSetLocationByClient = customSetLocationByClient;
+    public Client(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount) {
+        super(firstName, lastName, phone, mail, user, magic, currentLocation, isOnTrip, isLocked, isDeleted, rate, faceImage, tripCount);
     }
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Getters">
-    public Location getHome() {
-        return home;
+    public List<ClientFavourateLocation> getClientFavourateLocations() {
+        return clientFavourateLocations;
     }
 
-    public Location getWork() {
-        return work;
+    public List<Trip> getTrips() {
+        return trips;
     }
 
-    public Location getCustomSetLocationByClient() {
-        return customSetLocationByClient;
+    public List<Report> getReports() {
+        return reports;
     }
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Setters">
-    public void setHome(Location home) {
-        this.home = home;
+    public void setClientFavourateLocations(ClientFavourateLocation clientFavourateLocation) {
+        this.clientFavourateLocations.add(clientFavourateLocation);
     }
 
-    public void setWork(Location work) {
-        this.work = work;
+    public void setTrips(Trip trip) {
+        this.trips.add(trip);
     }
 
-    public void setCustomSetLocationByClient(Location customSetLocationByClient) {
-        this.customSetLocationByClient = customSetLocationByClient;
+    public void setReports(Report report) {
+        this.reports.add(report);
     }
     // </editor-fold>
 

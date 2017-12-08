@@ -2,33 +2,37 @@ package com.syntaxerror.models;
 
 import javax.persistence.*;
 import java.io.File;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+@MappedSuperclass
 public abstract class Account {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer Id;
-    protected String firstName;
-    protected String lastName;
-    protected String phone;
-    protected String mail;
-    protected String user;
-    protected String magic;
-    protected Location currentLocation;
-    protected Boolean isOnTrip;
-    protected Boolean isLocked;
-    protected Boolean isDeleted;
-    protected Float rate;
-    protected File faceImage;
-    protected Integer tripCount;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "report")
-    protected Set<Report> reports;
+    private Integer Id;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String mail;
+    private String user;
+    private String magic;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Location currentLocation;
+    private Boolean isOnTrip;
+    private Boolean isLocked;
+    private Boolean isDeleted;
+    private Float rate;
+    private File faceImage;
+    private Integer tripCount;
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount, Set<Report> reports) {
+    public Account() {
+    }
+
+    protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -42,7 +46,6 @@ public abstract class Account {
         this.rate = rate;
         this.faceImage = faceImage;
         this.tripCount = tripCount;
-        this.reports = reports;
     }
     // </editor-fold>
 
@@ -102,10 +105,6 @@ public abstract class Account {
     public Integer getTripCount() {
         return tripCount;
     }
-
-    public Set<Report> getReports() {
-        return reports;
-    }
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Setters">
@@ -159,10 +158,6 @@ public abstract class Account {
 
     public void setTripCount(Integer tripCount) {
         this.tripCount = tripCount;
-    }
-
-    public void setReports(Set<Report> reports) {
-        this.reports = reports;
     }
     // </editor-fold>
 

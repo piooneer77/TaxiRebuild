@@ -3,29 +3,41 @@ package com.syntaxerror.models;
 import javax.persistence.*;
 
 @Entity
-public class Location {
+@Table(name = "TripLocation_table")
+public class TripLocation {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
+    @ManyToOne
+    @JoinColumn(name = "Id", insertable = false, updatable = false)
+    private Trip trip;
     private String name;
     private double longitude;
     private double latitude;
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
-    public Location() {
+    // <editor-fold defaultstate="collapsed" desc="Constructors">
+    public TripLocation() {
     }
 
-    public Location(String name, double longitude, double latitude) {
+    public TripLocation(String name, double longitude, double latitude) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
+    // <editor-fold defaultstate="collapsed" desc="Getters">
+    public Integer getId() {
+        return Id;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
     public String getName() {
         return name;
     }
@@ -39,7 +51,11 @@ public class Location {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
+    // <editor-fold defaultstate="collapsed" desc="Setters">
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
