@@ -16,7 +16,7 @@ public abstract class Account {
     private String mail;
     private String user;
     private String magic;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Location currentLocation;
     private Boolean isOnTrip;
     private Boolean isLocked;
@@ -27,7 +27,7 @@ public abstract class Account {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    public Account() {
+    protected Account() {
     }
 
     protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount) {

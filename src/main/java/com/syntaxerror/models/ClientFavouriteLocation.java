@@ -3,8 +3,8 @@ package com.syntaxerror.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ClientFavourateLocation_Table")
-public class ClientFavourateLocation {
+@Table(name = "ClientFavouriteLocation_Table")
+public class ClientFavouriteLocation {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
     @Id
@@ -18,10 +18,10 @@ public class ClientFavourateLocation {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    public ClientFavourateLocation() {
+    public ClientFavouriteLocation() {
     }
 
-    public ClientFavourateLocation(Client client, String name, double longitude, double latitude) {
+    public ClientFavouriteLocation(Client client, String name, double longitude, double latitude) {
         this.client = client;
         this.name = name;
         this.longitude = longitude;

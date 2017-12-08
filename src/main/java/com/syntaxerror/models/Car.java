@@ -20,6 +20,7 @@ public class Car {
     private String plateNumbers;
     private String plateLetters;
     private File licenseImage;
+    private File carImage;
     private LocalDate licenseExpiryDate;
     private Boolean isCarValid;
     // </editor-fold>
@@ -28,7 +29,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(String carMake, String type, String model, Boolean isACOn, String plateNumbers, String plateLetters, File licenseImage, LocalDate licenseExpiryDate, Boolean isCarValid) {
+    public Car(String carMake, String type, String model, Boolean isACOn, String plateNumbers, String plateLetters, File licenseImage, File carImage, LocalDate licenseExpiryDate, Boolean isCarValid) {
         this.carMake = carMake;
         this.type = type;
         this.model = model;
@@ -36,6 +37,7 @@ public class Car {
         this.plateNumbers = plateNumbers;
         this.plateLetters = plateLetters;
         this.licenseImage = licenseImage;
+        this.carImage = carImage;
         this.licenseExpiryDate = licenseExpiryDate;
         this.isCarValid = isCarValid;
     }
@@ -74,6 +76,10 @@ public class Car {
         return licenseImage;
     }
 
+    public File getCarImage() {
+        return carImage;
+    }
+
     public LocalDate getLicenseExpiryDate() {
         return licenseExpiryDate;
     }
@@ -110,6 +116,10 @@ public class Car {
 
     public void setLicenseImage(File licenseImage) {
         this.licenseImage = licenseImage;
+    }
+
+    public void setCarImage(File carImage) {
+        this.carImage = carImage;
     }
 
     public void setLicenseExpiryDate(LocalDate licenseExpiryDate) {

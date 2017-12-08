@@ -4,19 +4,18 @@ import javax.persistence.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table( name = "Client_Table" )
 public class Client extends Account {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private List<ClientFavourateLocation> clientFavourateLocations = new ArrayList<ClientFavourateLocation>();
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private List<Trip> trips;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    protected List<Report> reports = new ArrayList<Report>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    private List<ClientFavouriteLocation> clientFavouriteLocations = new ArrayList<ClientFavouriteLocation>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Trip> trips = new ArrayList<Trip>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Report> reports = new ArrayList<Report>();
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
@@ -26,8 +25,8 @@ public class Client extends Account {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Getters">
-    public List<ClientFavourateLocation> getClientFavourateLocations() {
-        return clientFavourateLocations;
+    public List<ClientFavouriteLocation> getClientFavouriteLocations() {
+        return clientFavouriteLocations;
     }
 
     public List<Trip> getTrips() {
@@ -40,8 +39,8 @@ public class Client extends Account {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Setters">
-    public void setClientFavourateLocations(ClientFavourateLocation clientFavourateLocation) {
-        this.clientFavourateLocations.add(clientFavourateLocation);
+    public void setClientFavouriteLocations(ClientFavouriteLocation clientFavouriteLocation) {
+        this.clientFavouriteLocations.add(clientFavouriteLocation);
     }
 
     public void setTrips(Trip trip) {

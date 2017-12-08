@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table( name = "Driver_Table" )
@@ -15,10 +14,10 @@ public class Driver extends Account{
     private Car car;
     @OneToOne(fetch=FetchType.LAZY)
     private DriverPersonalDocuments driverPersonalDocuments;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver")
-    private List<Trip> trips;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver")
-    protected List<Report> reports = new ArrayList<Report>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver", cascade = CascadeType.ALL)
+    private List<Trip> trips = new ArrayList<Trip>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver", cascade = CascadeType.ALL)
+    private List<Report> reports = new ArrayList<Report>();
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
