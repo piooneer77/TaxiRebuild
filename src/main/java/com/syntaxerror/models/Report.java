@@ -3,7 +3,7 @@ package com.syntaxerror.models;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "Report_table" )
+@Table( name = "Report_Table" )
 public class Report {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

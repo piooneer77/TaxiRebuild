@@ -5,7 +5,7 @@ import java.io.File;
 import java.time.LocalDate;
 
 @Entity
-@Table( name = "DriverPersonalDocuments_table" )
+@Table( name = "DriverPersonalDocuments_Table" )
 public class DriverPersonalDocuments {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

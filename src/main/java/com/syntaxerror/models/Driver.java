@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table( name = "Driver_table" )
+@Table( name = "Driver_Table" )
 public class Driver extends Account{
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

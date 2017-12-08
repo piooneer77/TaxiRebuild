@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table( name = "Client_table" )
+@Table( name = "Client_Table" )
 public class Client extends Account {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

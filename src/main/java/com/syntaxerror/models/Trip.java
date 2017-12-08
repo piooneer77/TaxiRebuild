@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table( name = "Trip_table" )
+@Table( name = "Trip_Table" )
 public class Trip {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

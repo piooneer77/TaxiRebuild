@@ -2,8 +2,6 @@ package com.syntaxerror.models;
 
 import javax.persistence.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 @MappedSuperclass
 public abstract class Account {

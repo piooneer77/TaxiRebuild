@@ -1,7 +1,5 @@
 package com.syntaxerror.models;
 
-import javax.persistence.*;
-
 public class ClientsSharingTheTrip {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">

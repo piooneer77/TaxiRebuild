@@ -5,7 +5,7 @@ import java.io.File;
 import java.time.LocalDate;
 
 @Entity
-@Table( name = "Car_table" )
+@Table( name = "Car_Table" )
 public class Car {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
