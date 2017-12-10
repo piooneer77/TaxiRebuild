@@ -24,13 +24,14 @@ public abstract class Account {
     private Float rate;
     private File faceImage;
     private Integer tripCount;
+    private Integer role;
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
     protected Account() {
     }
 
-    protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount) {
+    protected Account(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount, Integer role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -44,6 +45,7 @@ public abstract class Account {
         this.rate = rate;
         this.faceImage = faceImage;
         this.tripCount = tripCount;
+        this.role = role;
     }
     // </editor-fold>
 
@@ -103,6 +105,10 @@ public abstract class Account {
     public Integer getTripCount() {
         return tripCount;
     }
+
+    public Integer getRole() {
+        return role;
+    }
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Setters">
@@ -156,6 +162,10 @@ public abstract class Account {
 
     public void setTripCount(Integer tripCount) {
         this.tripCount = tripCount;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
     // </editor-fold>
 
