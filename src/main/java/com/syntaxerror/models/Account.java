@@ -14,6 +14,7 @@ public abstract class Account {
     private String lastName;
     private String phone;
     private String mail;
+    @Column(nullable = false, unique = true)
     private String user;
     private String magic;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

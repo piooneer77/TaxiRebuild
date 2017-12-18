@@ -14,7 +14,7 @@ public class Location {
     private double latitude;
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
+    // <editor-fold defaultstate="collapsed" desc="Constructors">
     public Location() {
     }
 
@@ -25,7 +25,7 @@ public class Location {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
+    // <editor-fold defaultstate="collapsed" desc="Getters">
     public String getName() {
         return name;
     }
@@ -39,7 +39,7 @@ public class Location {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Properties">
+    // <editor-fold defaultstate="collapsed" desc="Setters">
     public void setName(String name) {
         this.name = name;
     }

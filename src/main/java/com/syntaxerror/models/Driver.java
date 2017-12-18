@@ -1,5 +1,7 @@
 package com.syntaxerror.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.File;
 import java.util.ArrayList;
@@ -14,15 +16,20 @@ public class Driver extends Account{
     private Car car;
     @OneToOne(fetch=FetchType.LAZY)
     private DriverPersonalDocuments driverPersonalDocuments;
+    @JsonIgnoreProperties("driver")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Trip> trips = new ArrayList<Trip>();
+    @JsonIgnoreProperties("driver")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Report> reports = new ArrayList<Report>();
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    public Driver(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount) {
-        super(firstName, lastName, phone, mail, user, magic, currentLocation, isOnTrip, isLocked, isDeleted, rate, faceImage, tripCount);
+    public Driver() {
+    }
+
+    public Driver(String firstName, String lastName, String phone, String mail, String user, String magic, Location currentLocation, Boolean isOnTrip, Boolean isLocked, Boolean isDeleted, Float rate, File faceImage, Integer tripCount, Integer role) {
+        super(firstName, lastName, phone, mail, user, magic, currentLocation, isOnTrip, isLocked, isDeleted, rate, faceImage, tripCount, role);
     }
 
     public Driver(Car car, DriverPersonalDocuments driverPersonalDocuments) {

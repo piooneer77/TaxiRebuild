@@ -1,5 +1,7 @@
 package com.syntaxerror.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
+    @JsonIgnoreProperties("trips")
     @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
     @ManyToOne(fetch = FetchType.LAZY)

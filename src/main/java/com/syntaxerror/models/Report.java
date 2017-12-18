@@ -1,5 +1,7 @@
 package com.syntaxerror.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     private String reportString;
+    @JsonIgnoreProperties("reports")
     @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
     @ManyToOne(fetch = FetchType.LAZY)
