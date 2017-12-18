@@ -18,11 +18,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     // <editor-fold defaultstate="collapsed" desc="Implemented Methods">
     @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("1").password("1").roles("ADMIN");
+    }
+
+    @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
                 .anyRequest()
-                .permitAll()
+                .fullyAuthenticated()
                 .and()
                 .httpBasic();
         httpSecurity.csrf().disable();
