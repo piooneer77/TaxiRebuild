@@ -1,5 +1,6 @@
 package com.syntaxerror.security;
 
+import com.syntaxerror.models.Client;
 import com.syntaxerror.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +19,12 @@ public class CustomClientDetailsService implements UserDetailsService {
     // <editor-fold defaultstate="collapsed" desc="Implemented Methods">
     @Override
     public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException {
-        return new CustomClientDetails(clientRepository.findByUser(user));
+        Client client = clientRepository.findByUser(user);
+        if (client != null) {
+            return new CustomClientDetails(client);
+        } else {
+            throw new UsernameNotFoundException("Invalid Username or Password");
+        }
     }
     // </editor-fold>
 
