@@ -113,6 +113,10 @@ public abstract class Account {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Setters">
+    public void setId(Integer id) {
+        Id = id;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

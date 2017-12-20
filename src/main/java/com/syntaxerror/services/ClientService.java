@@ -6,12 +6,17 @@ import com.syntaxerror.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @RestController
-@RequestMapping(value = "/rest/client")
+@RequestMapping(value = "/client")
 public class ClientService {
 
     // <editor-fold defaultstate="collapsed" desc="Properties">
@@ -24,7 +29,12 @@ public class ClientService {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Get Methods">
-    @GetMapping(value = "/login/{user}/{magic}", produces = {"application/json"})
+    @GetMapping(value = "/secure/all")
+    public ResponseEntity<List<Client>> getAllClients(){
+        return new ResponseEntity<List<Client>>(clientBusiness.getAllClients(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/secure/login/{user}/{magic}", produces = {"application/json"})
     public ResponseEntity<Client> Login(@PathVariable String user, @PathVariable String magic) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return new ResponseEntity<Client>(getClientObjectFromBusinessLayer(user, magic), HttpStatus.OK);
     }
